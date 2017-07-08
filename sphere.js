@@ -1,0 +1,22 @@
+function Sphere(x,y)
+{
+	this.pos=createVector(x,y);
+	this.speed=createVector(0,0);
+	this.acc=createVector(0,0);
+	this.r=20;
+	this.update=function()
+	{
+		this.speed.add(this.acc);
+		this.pos.add(this.speed);
+		this.acc.set(0,0);
+	}
+	this.display=function()
+	{
+		fill(255);
+		ellipse(this.pos.x,this.pos.y,this.r,this.r);
+	}
+	this.applyforce=function(force)
+	{
+		this.acc.add(force);
+	}
+}
